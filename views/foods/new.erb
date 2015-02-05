@@ -1,0 +1,11 @@
+<form action="/foods" method="post">
+  <%= erb :"/foods/_form" %>
+
+  <label for="course_type">Which course? </label> 
+    <select id="course_type" name="food[course_type]">
+    <option value="Appetizer">Appetizer</option>
+    <option value="Entree">Entree</option>
+    <option value="Dessert">Dessert</option>
+  </select><br>
+  <input type="submit">
+</form>

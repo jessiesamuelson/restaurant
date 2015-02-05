@@ -1,0 +1,6 @@
+<h2><%= @food.name %></h2>
+<p>$<%= @food.price %></p>
+<p>Allergens: <%= @food.allergens %></p>
+<p>Course: <%= @food.course_type %></p><br>
+
+<a href="/foods/<%= @food.id %>/edit">Change the Menu Item</a>

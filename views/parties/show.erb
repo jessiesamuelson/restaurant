@@ -1,0 +1,18 @@
+<h2>Party is seated at table number <%= @party.table_number %></h2>
+
+<p><%= @party.people %> top</p>
+<% if @party.paid %> 
+  <p>This party has paid.</p>
+  <% else %> 
+  <p>This party has not paid.</p>
+  <% end %>
+  
+  <p>Table <%= @party.table_number %> ordered:</p> 
+  <ul>
+    <% @party.orders.each do |order| %>
+      <li><%= order.number_ordered %> <%= order.food.name %></li>
+    <% end %>
+  
+  </ul>  
+<a href="/parties/<%= @party.id %>/receipt">See this party's receipt</a><br>
+<a href="/parties/<%= @party.id %>/edit">Edit this party</a>

@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+  </head>
+  <body>
+    <header>
+      <%= erb :"/static/navigation" %>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <%= erb :"/static/copyright" %>
+    </footer>
+  </body>
+</html>

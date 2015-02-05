@@ -1,0 +1,14 @@
+<form action="/foods" method="post">
+
+<label for="name">Table number: </label>
+<input id="name" type="integer" name='party[people]' value="<%= @party.people %>"><br> 
+
+<label for="name">Number of guests: </label>
+<input id="name" type="integer" name='party[people]' value="<%= @party.people %>"><br> 
+
+<input type="submit">
+
+</form>
+
+potential solution:
+we need to make the table number auto populate by looking at parties and adding one to the last id in the table

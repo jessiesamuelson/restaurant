@@ -1,0 +1,12 @@
+<h2>Receipt:</h2>
+
+<p>Table number <%= @party.table_number %></p>
+<% bill = 0 %>
+<% @party.orders.each do |order| %>
+  <% bill += order.number_ordered * order.food.price %>
+<% end %>
+<% if @party.paid %>
+  <p>Paid $<%= bill %></p>
+<% else %>  
+  <p>Owes $<%= bill %></p>
+<% end %>
