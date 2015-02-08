@@ -1,0 +1,15 @@
+<div class="main">
+  <h2>Login Page: </h2>
+
+  <form action="/employees/:id" method="POST">
+
+  <select class="button" id="employee_name" name="employee_id">
+  <% @employees.each do |employee| %>
+      <option value="<%= employee.id %>"><%= employee.name %></option>
+  <% end %>
+  </select>
+</div>
+<div class="button">
+  <input type="submit">
+</div>
+</form>

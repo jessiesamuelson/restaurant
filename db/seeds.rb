@@ -12,64 +12,73 @@ ActiveRecord::Base.establish_connection(
   host: "localhost" 
 )
 
-#CREATE FOODS
-[
-  {
-    name: "Burrata with vine tomatoes and balsamic reduction",
-    course_type: "Appetizer",
-    price: 14,
-    allergens: "dairy"
-  },
-  {
-    name: "Wedge salad with tamari glazed pork belly, blue cheese, and pickled carrots and daikon radish",
-    course_type: "Appetizer",
-    price: 15,
-    allergens: "dairy, soy, eggs"
-  },
-  {
-    name: "Ribeye with carmalized sweet onions served with black garlic spinach and Hasselback sweet potato with a brown butter sabayon",
-    course_type: "Entree",
-    price: 39,
-    allergens: "dairy, gluten"
-  },
-  {
-    name: "Roasted rack of lamb served with truffled Israeli couscous with wild mushrooms, Meyer lemon, and basil",
-    course_type: "Entree",
-    price: 44,
-    allergens: "dairy"
-  },
-  {
-    name: "Candied grapefruit with hazelnut sorbet",
-    course_type: "Dessert",
-    price: 11,
-    allergens: "dairy, gluten"
-  },
-  {
-    name: "Espresso creme brulee with fresh berries",
-    course_type: "Dessert",
-    price: 13,
-    allergens: "dairy"
-  }        
-].each do |food|
-  Food.create( food )
-end
+# Food.destroy_all
+# Party.destroy_all
+# Order.destroy_all
+
+
+
+# # CREATE FOODS
+# [
+#   {
+#     name: "Steak tartare",
+#     description: "Steak tartare with capers, cornichons, and violet mustard",
+#     course_type: "Appetizer",
+#     price: 14
+#   },
+#   {
+#     name: "Marinated beets",
+#     description: "Marinated beets with pickled pear, goat cheese, and pistachio",
+#     course_type: "Appetizer",
+#     price: 12
+#   },
+#   {
+#     name: "Pork Chop",
+#     description: "Bourbon glazed pork chop with cheddar grits, roasted apples, and pecans",
+#     course_type: "Entree",
+#     price: 35
+#   },
+#   {
+#     name: "Trout",
+#     description: "Pennsylvania Trout with crushed yukons, and a bacon-dill vinaigrette",
+#     course_type: "Entree",
+#     price: 39
+#   },
+#   {
+#     name: "Bread pudding",
+#     description: "Croissant bread pudding with dried fruit compote, and maple-bacon ice cream",
+#     course_type: "Dessert",
+#     price: 11
+#   },
+#   {
+#     name: "Carrot cake",
+#     description: "Carrot cake with pineapple, cream cheese frosting, and rum-raisin ice cream",
+#     course_type: "Dessert",
+#     price: 10
+#   }        
+# ].each do |food|
+#   Food.create( food )
+# end
 
 # #CREATE PARTIES
 # [
 #   {
 #     table_number: 11,
 #     people: 2,
-#     paid: true
+#     paid: false,
+#     employee_id: 1
 #   },
 #   {
 #     table_number: 12,
 #     people: 4,
-#     paid: false
+#     paid: false,
+#     employee_id: 2
 #   }, 
 #   {
 #     table_number: 13,
 #     people: 8,
-#     paid: false
+#     paid: false,
+#     employee_id: 1
 #   }   
 # ].each do |party|
 #   Party.create( party )
@@ -79,73 +88,115 @@ end
 # [
 #   {
 #     party_id: 1,
-#     food_id: 1,
-#     number_ordered: 1
+#     food_id: 1
 #   },
 #   {
 #     party_id: 1,
-#     food_id: 2,
-#     number_ordered: 1
+#     food_id: 2
 #   },  
 #   {
 #     party_id: 1,
-#     food_id: 3,
-#     number_ordered: 1
+#     food_id: 3
 #   },
 #   {
 #     party_id: 1,
-#     food_id: 4,
-#     number_ordered: 1
+#     food_id: 4
 #   },
 #   {
 #     party_id: 1,
-#     food_id: 5,
-#     number_ordered: 1
+#     food_id: 5
 #   },
 #   {
 #     party_id: 1,
-#     food_id: 6,
-#     number_ordered: 1
+#     food_id: 6
 #   },
 #   {
 #     party_id: 2,
-#     food_id: 1,
-#     number_ordered: 1
+#     food_id: 1
 #   },
 #   {
 #     party_id: 2,
-#     food_id: 2,
-#     number_ordered: 1
+#     food_id: 2
 #   },
 #   {
 #     party_id: 2,
-#     food_id: 3,
-#     number_ordered: 1
+#     food_id: 3
 #   },
 #   {
 #     party_id: 2,
-#     food_id: 4,
-#     number_ordered: 3
+#     food_id: 4
 #   },
 #   {
 #     party_id: 2,
-#     food_id: 6,
-#     number_ordered: 1
+#     food_id: 4
+#   },
+#   {
+#     party_id: 2,
+#     food_id: 4
+#   },
+#   {
+#     party_id: 2,
+#     food_id: 4
+#   },
+#   {
+#     party_id: 2,
+#     food_id: 6
 #   },            
 #   {
 #     party_id: 3,
-#     food_id: 1,
-#     number_ordered: 5
+#     food_id: 1
+#   },
+#   {
+#     party_id: 3,
+#     food_id: 1
+#   },
+#   {
+#     party_id: 3,
+#     food_id: 1
+#   },
+#   {
+#     party_id: 3,
+#     food_id: 1
+#   },
+#   {
+#     party_id: 3,
+#     food_id: 1
 #   }, 
 #   {
 #     party_id: 3,
-#     food_id: 2,
-#     number_ordered: 4
+#     food_id: 2
+#   },
+#   {
+#     party_id: 3,
+#     food_id: 2
+#   },
+#   {
+#     party_id: 3,
+#     food_id: 2
+#   },
+#   {
+#     party_id: 3,
+#     food_id: 2
 #   }, 
 #   {
 #     party_id: 3,
 #     food_id: 3,
-#     number_ordered: 6
+#   },
+#   {
+#     party_id: 3,
+#     food_id: 3,
+#   },
+#   {
+#     party_id: 3,
+#     food_id: 3,
+#   },
+#   {
+#     party_id: 3,
+#     food_id: 3,
+#   },  
+#   {
+#     party_id: 3,
+#     food_id: 3,
 #   },
 #   {
 #     party_id: 3,
@@ -154,11 +205,89 @@ end
 #   },
 #   {
 #     party_id: 3,
-#     food_id: 6,
-#     number_ordered: 4
+#     food_id: 6
+#   },
+#     {
+#     party_id: 3,
+#     food_id: 6
+#   },
+#     {
+#     party_id: 3,
+#     food_id: 6
 #   }
 # ].each do |order|
 #   Order.create( order )
 # end
 
 
+# [
+#   {
+#     name: "soy"
+#   },
+#   {
+#     name: "dairy"
+#   },
+#   {
+#     name: "gluten"
+#   },
+#   {
+#     name: "nuts"
+#   }
+# ].each do |allergen|
+#   Allergen.create( allergen )
+# end
+
+# [
+#   {
+#     allergen_id: 2,
+#     food_id: 1
+#   },
+#   {
+#     allergen_id: 2,
+#     food_id: 2
+#   },
+#   {
+#     allergen_id: 1,
+#     food_id: 2
+#   },
+#   {
+#     allergen_id: 2,
+#     food_id: 3
+#   },
+#   {
+#     allergen_id: 3,
+#     food_id: 4
+#   },
+#   {
+#     allergen_id: 3,
+#     food_id: 4
+#   },
+#   {
+#     allergen_id: 4,
+#     food_id: 5
+#   },
+#   {
+#     allergen_id: 2,
+#     food_id: 6
+#   }
+# ].each do | food_allergen |
+#   FoodAllergen.create( food_allergen )
+# end
+
+
+[
+  {
+    name: "Jessie"
+  },
+  {
+    name: "Anya"
+  },
+  {
+    name: "Izabella"
+  },
+  {
+    name: "Vienne"
+  }
+].each do |employee|
+  Employee.create( employee )
+end

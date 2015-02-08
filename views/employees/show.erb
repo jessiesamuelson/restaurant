@@ -1,0 +1,22 @@
+<div class="main">
+  <h2><%= @employee.name %></h2>
+  <% tips = 0 %>
+  <ul>
+  <% @employee.parties.each do |party| %>
+    <li>Table: <%= party.table_number %></li>  
+    <% if party.tip %>
+      <li>Tip: <%= currency(party.tip) %></li>
+      <% tips += party.tip %>
+    <% else %>
+      <li>In progress</li>
+      <br>
+    <% end %>  
+  <% end %>
+  </ul>
+  <br>
+  <p>Total tips: <%= tips %></p> 
+  <br>
+</div>
+<div class="button">
+  <a href="/parties/new">Add party</a>  
+</div>

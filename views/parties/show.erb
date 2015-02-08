@@ -1,18 +1,29 @@
-<h2>Party is seated at table number <%= @party.table_number %></h2>
+<div class="main box">
+  <h2>Party is seated at table number <%= @party.table_number %></h2>
 
-<p><%= @party.people %> top</p>
-<% if @party.paid %> 
-  <p>This party has paid.</p>
+  <p><%= @party.people %> top</p>
+
+  <p>Server: <%= @party.employee.name %></p>
+  <% if @party.paid %> 
+    <p>This party has paid.</p>
   <% else %> 
-  <p>This party has not paid.</p>
+    <p>This party has not paid.</p>
   <% end %>
-  
-  <p>Table <%= @party.table_number %> ordered:</p> 
-  <ul>
-    <% @party.orders.each do |order| %>
-      <li><%= order.number_ordered %> <%= order.food.name %></li>
+    
+  <% if @party.orders %>
+    <p>Table <%= @party.table_number %> ordered:</p>
+    <% @foods.each do |food|  %>
+      <% orders = Order.where(party_id: @party.id, food_id: food.id).to_a %>
+        <p><%= food.name %><p>
     <% end %>
-  
-  </ul>  
-<a href="/parties/<%= @party.id %>/receipt">See this party's receipt</a><br>
-<a href="/parties/<%= @party.id %>/edit">Edit this party</a>
+  <% else %>
+    <p>Table <%= @party.table_number %> has not ordered yet</p> 
+  <% end %>
+</div>
+ 
+<div class="button">
+  <a href="/parties/<%= @party.id %>/receipt">See this party's receipt</a><br>
+</div>
+<div class="button">
+  <a href="/parties/<%= @party.id %>/edit">Edit this party</a>
+</div>

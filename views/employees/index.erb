@@ -1,0 +1,14 @@
+<div class="main">
+  <h2>Employees</h2>
+  <div class="button">
+    <a href="/employees/login">Login</a>  
+  </div>
+  <br>
+  <% @employees.each do |employee| %>
+  <p><%= employee.name %></p>
+  <% end %>
+</div>
+  <br>
+<div class="button">
+  <a href="/employees/new">Add a new employee</a>
+</div>

@@ -14,3 +14,5 @@ use Rack::MethodOverride
 
 require './app'
 run Restaurant
+
+set :scss, {:style => :compressed, :debug_info => false}

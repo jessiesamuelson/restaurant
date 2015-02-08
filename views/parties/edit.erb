@@ -1,27 +1,36 @@
-<h2>Editing table <%= @party.table_number %>'s order</h2>
+<div class="main">
+  <div class="box">
+    <h2>Edit the Party <%= @party.table_number %>'s order</h2>
 
-<form action="/parties/<%= @party.id %>" method="POST">
-  
-  <input type="hidden" name="_method" value="patch">
-  
-  <label for="name">Number of guests: </label>
-  <input id="name" type="integer" name='party[people]' value="<%= @party.people %>"><br> 
-  
-  <label for="first_item"><%= @party.foods[1].name %></label>
-  <input id="first_item" type="integer" name='party[order][number_ordered]' value="<%= @party.order.number_ordered%>"><br> 
+    <form action="/parties/<%= @party.id %>" method="POST">
+      
+      <input type="hidden" name="_method" value="patch">
+      
+      <label for="name">Number of guests: </label>
+      <input id="name" type="integer" name='party[people]' value="<%= @party.people %>">
+  </div>  
+    <br>
+    <br>
 
-
-
-
-  <label for="paid">Payment status</label> 
-  <select id="paid" name="party[paid]">
-    <option value="true">Paid</option>
-    <option value="false">Not paid</option>
-  </select> 
+  <div class="box">  
+    <h3>Add food:</h3> 
+    <% @foods.each do |food| %>
+      <label for="food_name"><%= food.name%> :</label>
+      <input id="order_amount" type="integer" name='party[food][<%= food.id %>]' value=""><br> 
+    <% end %>
+  </div>  
+    <br>
+    <br>
+</div>
+<div class="button">  
   <input type="submit">
+</div>
 </form>
 
-<form action="/parties/<%= @party.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Menu Item">
-</form>
+  <br>
+<div class="button">  
+  <form action="/parties/<%= @party.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Party">
+  </form>
+</div>

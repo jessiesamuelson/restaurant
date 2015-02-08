@@ -1,11 +1,40 @@
-<form action="/foods" method="post">
-  <%= erb :"/foods/_form" %>
+<div class="main">
+<% if @error_messages %>
+  <ul>
+    <% @error_messages.each do |error_name, error_message| %>
+       <li class='error'><%= error_name %>: <%= error_message[0] %></li>
+    <% end %>
+  </ul>
+<% end %>
 
-  <label for="course_type">Which course? </label> 
-    <select id="course_type" name="food[course_type]">
-    <option value="Appetizer">Appetizer</option>
-    <option value="Entree">Entree</option>
-    <option value="Dessert">Dessert</option>
-  </select><br>
-  <input type="submit">
+
+<form action="/foods" method="post">
+ <label for="name">Menu item name: </label>
+ <input id="name" type="text" name='food[name]'><br> 
+ 
+ <label for="description">Menu item description: </label>
+ <input id="description" type="text" name='food[description]'><br>
+
+ <label for="price">Price: </label>
+ <input id="price" type="integer" name='food[price]'><br>
+ 
+ <label for="course_type">Which course? </label> 
+ <select id="course_type" name="food[course_type]">
+ <option value="Appetizer">Appetizer</option>
+ <option value="Entree">Entree</option>
+ <option value="Dessert">Dessert</option>
+ </select><br>
+
+ <label for="allergens">Allergens: </label>
+
+ <% @allergens.each do |allergen| %>
+  <input id="allergen_<%= allergen.id %>" 
+         type="checkbox" 
+         name="food[allergen_ids][]" 
+         value="<%= allergen.id %>">
+  <label for="allergen_<%= allergen.id %>"><%= allergen.name %></label>
+ <% end %>
+
+ <input type="submit">
 </form>
+</div>

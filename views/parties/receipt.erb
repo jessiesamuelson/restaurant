@@ -1,12 +1,59 @@
+<div class="main print">
 <h2>Receipt:</h2>
 
-<p>Table number <%= @party.table_number %></p>
+<p>Table number <%= @party.table_number %> ordered: </p>
 <% bill = 0 %>
 <% @party.orders.each do |order| %>
-  <% bill += order.number_ordered * order.food.price %>
+  <% bill += order.food.price %>
 <% end %>
-<% if @party.paid %>
-  <p>Paid $<%= bill %></p>
-<% else %>  
-  <p>Owes $<%= bill %></p>
-<% end %>
+
+  <% if @party.orders.any? %>
+    <!-- <p>Table < %= @party.table_number % > ordered:</p> -->
+    <% @party.orders.each do |order|  %>
+        <p><%= order.food.name %> <%= currency(order.food.price) %><p>
+    
+        <form class="no-print button" action="/orders/<%= order.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Delete Order">
+        </form>
+        <% unless order.comped %>
+        <form class="no-print button" action="/orders/<%= order.id %>"  method="POST">
+          <input type="hidden" name="_method" value="PATCH">
+          <input type="hidden" name="order[comped]" value="true">
+          <input type="submit" value="Comp this item">
+        </form>
+        <% end %>
+
+
+    <% end %>
+  <% else %>
+    <p>Table <%= @party.table_number %> has not ordered yet</p> 
+  <% end %>
+
+  <% comp = 0 %>
+  <% @party.orders.each do |order| %>
+    <% if order.comped %>
+    <% comp += order.food.price %>
+    <% end %>
+  <% end %>
+  <br>
+
+  <p>Bill: <%= currency(bill) %></p>
+  <p>Comp: <%= currency(comp) %></p>
+
+  <% if @party.paid %>
+    <p>Paid <%= currency(bill - comp) %></p>
+  <% else %>  
+    <p>Owes: <%= currency(bill - comp) %></p>
+  <% end %>
+  <br>
+  <p>Suggested 15% Gratuity: <%= currency(bill * 0.15) %></p><br>
+
+  <p>Suggested 20% Gratuity: <%= currency(bill * 0.2) %></p><br>
+
+  <p>Suggested 25% Gratuity: <%= currency(bill * 0.25) %></p><br>
+  
+</div>
+<div class="no-print button">
+  <a href="/parties/<%= @party.id %>/checkout">Checkout</a>
+</div>

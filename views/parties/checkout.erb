@@ -1,0 +1,16 @@
+<div class="main box">
+  <h2>Welcome to your checkout page</h2> 
+  <% if @party.tip %>
+  <p>TIP: <%= currency(@party.tip) %></p>
+  <% else %>
+    <form action="/parties/<%= @party.id %>/checkout" method="POST">
+      <label for="tip">Tip: </label>
+      <input id="tip" type="integer" name='party[tip]' value=""><br> 
+</div>
+<div class="button">
+      <input type="hidden" name="_method" value="PATCH">
+      <input type="submit" value="Close party">
+    <form>
+  <% end %>
+</div>
+
