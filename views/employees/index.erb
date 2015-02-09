@@ -5,7 +5,7 @@
   </div>
   <br>
   <% @employees.each do |employee| %>
-  <p><%= employee.name %></p>
+  <p><a href="/employees/<%= employee.id %>"><%= employee.name %></a></p>
   <% end %>
 </div>
   <br>
