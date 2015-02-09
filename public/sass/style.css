@@ -34,11 +34,21 @@ a {
   a:hover {
     color: #34149A; }
 
+.logo {
+  float: left;
+  padding: 10px; }
+
 .navbar {
-  padding: 30px; }
+  padding: 30px;
+  float: right; }
   .navbar a {
-    padding: 20px;
+    padding: 10px;
     font-family: 'Podkova', serif; }
+
+.clearfix:after {
+  clear: both;
+  display: block;
+  content: ""; }
 
 form {
   width: 50%; }
@@ -61,7 +71,10 @@ form {
 .box {
   border: 2px #281B57 solid;
   margin: 10px auto;
-  background-color: white; }
+  background-color: white;
+  padding: 10px; }
+  .box label {
+    color: #281B57; }
 
 .button {
   border: 2px solid #281B57;
@@ -84,11 +97,25 @@ footer {
 @media only screen and (min-width: 1300px) {
   #container {
     width: 1300px; } }
-@media only screen and (max-width: 350px) {
-  .navbar a {
+@media only screen and (max-width: 600px) {
+  .logo {
     display: block;
     width: 100%;
-    text-align: center; } }
+    text-align: center;
+    float: none; }
+
+  .navbar {
+    display: block;
+    float: none; }
+    .navbar a {
+      display: block;
+      width: 100%;
+      text-align: center;
+      float: none; }
+
+  footer {
+    display: block;
+    margin: 0 auto; } }
 @media print {
   .no-print {
     display: none; }

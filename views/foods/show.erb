@@ -1,18 +1,21 @@
 <div class="main">
-<h2><%= @food.name %></h2>
+  <div class="box">
+    <h2><%= @food.name %></h2>
 
-<p><%= @food.description %></p>
+    <p><%= @food.description %></p>
 
-<p>Allergens: <p>
-<ul>
-<% @food.allergens.each do |allergen| %>
-  <li><%= allergen.name %></li>
-<% end %>
-</ul>
+    <p>Allergens: <p>
+    <ul>
+    <% @food.allergens.each do |allergen| %>
+      <li><%= allergen.name %></li>
+    <% end %>
+    </ul>
 
-<p>Course: </p>
-<p><%= @food.course_type %></p><br>
-<p>$<%= @food.price %></p>
-
-<a href="/foods/<%= @food.id %>/edit">Change the Menu Item</a>
+    <p>Course: </p>
+    <p><%= @food.course_type %></p><br>
+    <p>$<%= @food.price %></p>
+  </div>
+  <div class="button">
+    <a href="/foods/<%= @food.id %>/edit">Change the Menu Item</a>
+</div>
 </div>

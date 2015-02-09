@@ -1,12 +1,15 @@
 <div class="main">
+
   <h2>Employees</h2>
   <div class="button">
     <a href="/employees/login">Login</a>  
   </div>
   <br>
+<div class="box">
   <% @employees.each do |employee| %>
   <p><a href="/employees/<%= employee.id %>"><%= employee.name %></a></p>
   <% end %>
+</div>
 </div>
   <br>
 <div class="button">

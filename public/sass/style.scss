@@ -46,13 +46,24 @@ a {
     color: $tertiary;
   }
 }
+.logo {
+  float: left;
+  padding: 10px;
+}
 
 .navbar {
   padding: 30px;
+  float: right;
   a { 
-    padding: 20px;
+    padding: 10px;
     font-family: 'Podkova', serif;  
   }
+}
+
+.clearfix:after {
+ clear: both;
+ display: block;
+ content: "";
 }
 
 form {
@@ -84,6 +95,10 @@ form {
   border: 2px $secondary solid;
   margin: 10px auto;
   background-color: white;
+  padding: 10px;
+  label {
+    color: $secondary;
+  }
 }
 
 .button {
@@ -102,6 +117,13 @@ form {
   }
 }
 
+input[type="integer"] {
+
+}
+label {
+
+}
+
 footer {
   padding: 30px;
   color: $primary;
@@ -115,11 +137,26 @@ footer {
 }
 
 
-@media only screen and (max-width: 350px) {
-  .navbar a { 
+@media only screen and (max-width: 600px) {
+  .logo {
     display: block;
     width: 100%;
     text-align: center;
+    float: none;
+  }
+  .navbar {
+  display: block;
+  float: none;
+    a { 
+      display: block;
+      width: 100%;
+      text-align: center;
+      float: none;
+    }
+  }
+  footer {
+    display: block;
+    margin: 0 auto;
   }
 }
 

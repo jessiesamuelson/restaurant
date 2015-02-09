@@ -1,16 +1,19 @@
 <div class="main">
-<% if @error_messages %>
-  <ul>
-    <% @error_messages.each do |error_name, error_message| %>
-       <li class='error'><%= error_name.capitalize %>: <%= error_message[0] %></li>
-    <% end %>
-  </ul>
-<% end %>
+  <% if @error_messages %>
+    <ul>
+      <% @error_messages.each do |error_name, error_message| %>
+         <li class='error'><%= error_name.capitalize %>: <%= error_message[0] %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
-
-<form action="/employees" method="post">
- <label for="name">Employee name: </label>
- <input id="name" type="text" name='employee[name]'><br> 
- <input type="submit">
-</form>
+  <div class="box">
+    <form action="/employees" method="post">
+     <label for="name">Employee name: </label>
+     <input id="name" type="text" name='employee[name]'><br> 
+  </div>
+  <div class="button">
+     <input type="submit">
+    </form>
+  </div>  
 </div>
