@@ -214,8 +214,7 @@ end
   },
   {
     party_id: 3,
-    food_id: 5,
-    number_ordered: 1
+    food_id: 5
   },
   {
     party_id: 3,
