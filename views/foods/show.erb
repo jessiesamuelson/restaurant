@@ -13,7 +13,7 @@
 
     <p>Course: </p>
     <p><%= @food.course_type %></p><br>
-    <p>$<%= @food.price %></p>
+    <p><%= currency(@food.price) %></p>
   </div>
   <div class="button">
     <a href="/foods/<%= @food.id %>/edit">Change the Menu Item</a>

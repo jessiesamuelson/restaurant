@@ -96,10 +96,14 @@ form {
   margin: 10px auto;
   background-color: white;
   padding: 10px;
+  width: 50%;
   label {
     color: $secondary;
   }
-}
+  h2 {
+    text-align: center;
+  }
+ }
 
 .button {
   border: 2px solid $secondary;
@@ -127,6 +131,8 @@ label {
 footer {
   padding: 30px;
   color: $primary;
+/*  position: relative;
+  bottom: 10px;*/
 }
 
 
@@ -157,6 +163,9 @@ footer {
   footer {
     display: block;
     margin: 0 auto;
+  }
+  .box {
+    width: 80%;
   }
 }
 

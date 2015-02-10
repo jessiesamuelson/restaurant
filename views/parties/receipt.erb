@@ -8,7 +8,6 @@
 <% end %>
 
   <% if @party.orders.any? %>
-    <!-- <p>Table < %= @party.table_number % > ordered:</p> -->
     <% @party.orders.each do |order|  %>
         <p><%= order.food.name %> <%= currency(order.food.price) %><p>
     

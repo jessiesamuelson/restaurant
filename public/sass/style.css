@@ -72,9 +72,12 @@ form {
   border: 2px #281B57 solid;
   margin: 10px auto;
   background-color: white;
-  padding: 10px; }
+  padding: 10px;
+  width: 50%; }
   .box label {
     color: #281B57; }
+  .box h2 {
+    text-align: center; }
 
 .button {
   border: 2px solid #281B57;
@@ -92,7 +95,9 @@ form {
 
 footer {
   padding: 30px;
-  color: #F600B6; }
+  color: #F600B6;
+  /*  position: relative;
+    bottom: 10px;*/ }
 
 @media only screen and (min-width: 1300px) {
   #container {
@@ -115,7 +120,10 @@ footer {
 
   footer {
     display: block;
-    margin: 0 auto; } }
+    margin: 0 auto; }
+
+  .box {
+    width: 80%; } }
 @media print {
   .no-print {
     display: none; }
