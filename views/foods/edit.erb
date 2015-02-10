@@ -13,6 +13,7 @@
    
    <label for="allergens">Allergens: </label>
    <input type="hidden" name="food[allergen_ids][]" value="">
+   <br>
    <% @allergens.each do |allergen| %>
    <input id="allergen_<%= allergen.id %>"  
           type="checkbox" 

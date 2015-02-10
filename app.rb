@@ -89,11 +89,13 @@ class Restaurant < Sinatra::Base
   end
 
   post '/parties' do 
-    # Pry.start(binding)
     party = Party.create(params[:party])  
     party.assign_table
-    party.update(employee_id: session[:id])
-    # party.assign_server
+    if session[:id]
+      party.update(employee_id: session[:id])
+    else
+      party.update(employee_id: 1)
+    end
     redirect to "/parties/#{party.id}"
   end
 
@@ -105,6 +107,7 @@ class Restaurant < Sinatra::Base
 
   patch '/parties/:id' do
     party = Party.find(params[:id])
+    party.update(people: params[:party][:people])
     food_hash = params[:party][:food]
     food_hash.each do |key, value|
       value.to_i.times do 

@@ -48,7 +48,7 @@ a {
 }
 .logo {
   float: left;
-  padding: 10px;
+  margin: 10px;
 }
 
 .navbar {
@@ -67,12 +67,16 @@ a {
 }
 
 form {
-  width: 50%;
+  width: 100%;
   label {
    display: block;
   }
   input[type='text'] {
-   width: 100%;
+   width: 60%;
+   color: $secondary;
+   display: block;
+   margin: 0 auto;
+   border: solid 1px $tertiary;
   }
 }
 
@@ -114,25 +118,36 @@ form {
   text-align: center;
   width: 150px;
   input[type="submit"], select {
-    /*display: block;*/
     background-color: white;
     color: $secondary;
     text-align: center;
   }
 }
 
-input[type="integer"] {
+input[type="text"]:focus, input[type="integer"]:focus {
+  outline: none;
+}
 
+input[type="integer"] {
+  margin: 0 auto;
+  display: block;
+  width: 25px;
+  color: $secondary;
+  border: solid 1px $tertiary;
+}
+input[type="checkbox"] {
+  display: block;
+  margin: 0 auto;
 }
 label {
-
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 
 footer {
   padding: 30px;
   color: $primary;
-/*  position: relative;
-  bottom: 10px;*/
 }
 
 
