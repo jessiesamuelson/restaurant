@@ -13,6 +13,13 @@ set :database, {
 use Rack::MethodOverride
 
 require './app'
-run Restaurant
 
 set :scss, {:style => :compressed, :debug_info => false}
+
+
+map('/foods') { run FoodsController }
+map('/parties') { run PartiesController }
+map('/employees') { run EmployeesController }
+
+run Sinatra::Application
+run Restaurant
